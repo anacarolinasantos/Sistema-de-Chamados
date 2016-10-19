@@ -6,8 +6,8 @@ import java.io.Serializable;
  *
  * @author Richard
  */
-public class Pessoa implements Serializable{
-    
+public class Pessoa implements Serializable {
+
     private static final long serialVersionUID = 1L;
     private String nome;
     private long telefone;
@@ -32,7 +32,5 @@ public class Pessoa implements Serializable{
     public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
-    
-    
-    
+
 }

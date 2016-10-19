@@ -20,11 +20,11 @@ import javax.swing.JTextField;
 public class TelaCadastroEmpresa extends JFrame {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	private ControleEmpresas controladorEmp;
+    private ControleEmpresas controladorEmp;
 
     //label e preenchimento de Numero de Contrato da Empresa
     private JLabel lbNumContrato;

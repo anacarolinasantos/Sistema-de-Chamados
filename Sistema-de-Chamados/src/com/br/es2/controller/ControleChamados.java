@@ -91,24 +91,24 @@ public class ControleChamados {
     }
 
     public String emitirRelatorios(int tipoproblema) {
-    	
-    	Chamado ref = null;
-    	
-    	String problema = ""; 
-    	
-    	switch(tipoproblema){
-    		case 0 :
-    			problema = "Problema de Rede";
-    			break;
-    		
-    		case 1 :
-    			problema = "Banco de Dados";
-    			break;
-    		
-    		case 2 :
-    			problema = "Problema de Desempenho";
-    			break;
-    	}
+
+        Chamado ref = null;
+
+        String problema = "";
+
+        switch (tipoproblema) {
+            case 0:
+                problema = "Problema de Rede";
+                break;
+
+            case 1:
+                problema = "Banco de Dados";
+                break;
+
+            case 2:
+                problema = "Problema de Desempenho";
+                break;
+        }
 
         Collection<Chamado> chamados = chamadoDAO.getChamados();
         Collection<RegistroChamado> registros = chamadoDAO.getRegistros();
@@ -117,49 +117,49 @@ public class ControleChamados {
 
         for (Chamado c : chamados) {
             if (c.getTipoProblema().equals(problema)) {
-            	
-            	ref = c;
-            	int p = ref.getPrioridade();
-            	String prioridade = "";
-            	switch(p){
-            		case 1 :
-            			prioridade = "Normal";
-            			break;
-            		
-            		case 2 :
-            			prioridade = "Importante";
-            			break;
-            			
-            		case 3 :
-            			prioridade = "Urgente";
-            			break;
-            			
-            		case 4 :
-            			prioridade = "Cr�tica";
-            			break;
-            	}
-                relatorio += "\n" + "--------" + "\nData de abertura do chamado: " +
-                    	ref.getData() + 
-                    	"\nHor�rio de abertura do chamado: " + ref.getHora() + 
-                    	"\nT�tulo do chamado: " + ref.getTitulo() + 
-                    	"\nC�digo do chamado: " + ref.getCodigo() +
-                    	"\nDescri��o do chamado: " + ref.getDescricao() + 
-                    	"\nPrioridade do chamado: " + prioridade + 
-                    	"\nStatus do chamado: " + ref.getStatus() + 
-                    	"\nTipo de problema do chamado: " + ref.getTipoProblema() + 
-                    	"\nT�cnico respons�vel pelo chamado: " + ref.getTecnico() + 
-                    	"\nCliente requisitor do chamado: " + ref.getCliente() + "\n";
-                
-                for(RegistroChamado rc : registros){
-                	if(rc.getChamado().equals(ref)){
-                		relatorio += "\nRelat�rio de registros de acompanhamento:" + 
-                	"\nData: " + rc.getData() + 
-                	"\nHora: " + rc.getHora() + 
-                	"\nAssunto: " + rc.getAssunto() +
-                	"\nT�cnico respons�vel: " + rc.getTecnico().getNome() +
-                	"\nCausa do problema: " + ref.getCausaProblema() + 
-                	"\nSolu��o do problema: " + ref.getSolucaoProblema();
-                	}
+
+                ref = c;
+                int p = ref.getPrioridade();
+                String prioridade = "";
+                switch (p) {
+                    case 1:
+                        prioridade = "Normal";
+                        break;
+
+                    case 2:
+                        prioridade = "Importante";
+                        break;
+
+                    case 3:
+                        prioridade = "Urgente";
+                        break;
+
+                    case 4:
+                        prioridade = "Cr�tica";
+                        break;
+                }
+                relatorio += "\n" + "--------" + "\nData de abertura do chamado: "
+                        + ref.getData()
+                        + "\nHor�rio de abertura do chamado: " + ref.getHora()
+                        + "\nT�tulo do chamado: " + ref.getTitulo()
+                        + "\nC�digo do chamado: " + ref.getCodigo()
+                        + "\nDescri��o do chamado: " + ref.getDescricao()
+                        + "\nPrioridade do chamado: " + prioridade
+                        + "\nStatus do chamado: " + ref.getStatus()
+                        + "\nTipo de problema do chamado: " + ref.getTipoProblema()
+                        + "\nT�cnico respons�vel pelo chamado: " + ref.getTecnico()
+                        + "\nCliente requisitor do chamado: " + ref.getCliente() + "\n";
+
+                for (RegistroChamado rc : registros) {
+                    if (rc.getChamado().equals(ref)) {
+                        relatorio += "\nRelat�rio de registros de acompanhamento:"
+                                + "\nData: " + rc.getData()
+                                + "\nHora: " + rc.getHora()
+                                + "\nAssunto: " + rc.getAssunto()
+                                + "\nT�cnico respons�vel: " + rc.getTecnico().getNome()
+                                + "\nCausa do problema: " + ref.getCausaProblema()
+                                + "\nSolu��o do problema: " + ref.getSolucaoProblema();
+                    }
                 }
             }
         }
@@ -205,15 +205,15 @@ public class ControleChamados {
     public void fecharTelaAlteracao() {
         this.telaAlteracaoChamado.setVisible(false);
     }
-    
-    public int validarQtdChamados(ClienteEmpresa cliente){
-        
+
+    public int validarQtdChamados(ClienteEmpresa cliente) {
+
         int retorno = 0;
         Collection<Chamado> chamados = chamadoDAO.getChamados();
-        
+
         for (Chamado chamado : chamados) {
             if (cliente == chamado.getCliente()) {
-                retorno ++;
+                retorno++;
             }
         }
         return retorno;

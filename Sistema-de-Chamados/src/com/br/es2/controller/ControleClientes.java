@@ -5,7 +5,6 @@ import com.br.es2.model.entities.ClienteEmpresa;
 import com.br.es2.model.entities.Empresa;
 import com.br.es2.view.TelaCadastroCliente;
 
-
 /**
  *
  * @author Richard
@@ -17,7 +16,7 @@ public class ControleClientes {
 
     public ControleClientes() {
         this.clienteDAO = new ClienteDAO();
-         
+
     }
 
     public ClienteDAO getClienteDAO() {
@@ -25,7 +24,7 @@ public class ControleClientes {
     }
 
     public void cadastrarCliente() {
-        
+
         this.telaCliente = new TelaCadastroCliente(this);
         telaCliente.setVisible(true);
     }

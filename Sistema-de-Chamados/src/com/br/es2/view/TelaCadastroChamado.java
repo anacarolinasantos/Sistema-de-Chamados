@@ -254,7 +254,7 @@ public class TelaCadastroChamado extends JFrame {
         tfPrioridade.addItem("Normal");
         tfPrioridade.addItem("Importante");
         tfPrioridade.addItem("Urgente");
-        tfPrioridade.addItem("Cr�tica");        
+        tfPrioridade.addItem("Cr�tica");
         tfPrioridade.setPreferredSize(new Dimension(150, 20));
         cts.fill = GridBagConstraints.HORIZONTAL;
         cts.gridx = 1;
@@ -309,95 +309,94 @@ public class TelaCadastroChamado extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getActionCommand().equals(btSalvar.getActionCommand())) {
-                
+
                 if (cbProblema.getSelectedItem().equals("Rede")) {
-                	
-                	String titulo = "";
-                	String descricao = "";
-                	Tecnico t = null;
-                	ClienteEmpresa CE = null;
-                	String SO = "";
-                	String verSO = "";
-                	String tipoRede = "";
-                	String endRede = "";
-                	
-                	int prioridade = 0; 
-                	
-                	if(tfPrioridade.getSelectedItem().equals("Normal")){
-                		prioridade = 1;
-                	}else if(tfPrioridade.getSelectedItem().equals("Importante")){
-                		prioridade = 2;
-                	}else if(tfPrioridade.getSelectedItem().equals("Urgente")){
-                		prioridade = 3;
-                	}else if(tfPrioridade.getSelectedItem().equals("Cr�tica")){
-                		prioridade = 4;
-                	}
-                	
-                    try{
-                    	titulo = tfTitulo.getText();
-                    	descricao = tfDescricao.getText();
-                    	t = (Tecnico) cbTecnico.getSelectedItem();
-                    	CE = (ClienteEmpresa) cbCliente.getSelectedItem();
-                    	SO = (String) cbSO.getSelectedItem();
-                    	verSO = tfVersaoSO.getText();
-                    	tipoRede = (String) cbRede.getSelectedItem();
-                    	endRede = tfEnderecoRede.getText();
-                    	
-                    	Chamado c = ctrChamados.InserirChamadoRede(titulo, descricao, prioridade, t, CE, SO, verSO, tipoRede, endRede);
-                    	JOptionPane.showMessageDialog(null, "Codigo chamado criado: " + c.getCodigo());
-                    	ctrChamados.fecharTela();
-                    	
-                    }catch(NumberFormatException | InputMismatchException ex){
-                		JOptionPane.showMessageDialog(null, "Erro de input; certifique-se que os inputs estao nos formatos corretos", "Erro de input", JOptionPane.ERROR_MESSAGE);
-                	}
-                } else if (cbProblema.getSelectedItem().equals("Desempenho")) {	
-                	
-                	
-                	int prioridade = 0; 
-                	
-                	if(tfPrioridade.getSelectedItem().equals("Normal")){
-                		prioridade = 1;
-                	}else if(tfPrioridade.getSelectedItem().equals("Importante")){
-                		prioridade = 2;
-                	}else if(tfPrioridade.getSelectedItem().equals("Urgente")){
-                		prioridade = 3;
-                	}else if(tfPrioridade.getSelectedItem().equals("Cr�tica")){
-                		prioridade = 4;
-                	}
-                	
-                    try{
-                    Chamado c = ctrChamados.InserirChamadoDesempenho(tfTitulo.getText(), tfDescricao.getText(), prioridade,
-                            (Tecnico) cbTecnico.getSelectedItem(), (ClienteEmpresa) cbCliente.getSelectedItem(), (String) cbSO.getSelectedItem(),
-                            tfVersaoSO.getText(), tfProblemaDesempenho.getText(), Integer.parseInt(tfDuracao.getText()));
-                    JOptionPane.showMessageDialog(null, "Codigo chamado criado: " + c.getCodigo());
-                    ctrChamados.fecharTela();
-                    }catch(NumberFormatException | InputMismatchException ex){
-                		JOptionPane.showMessageDialog(null, "Erro de input; certifique-se que os inputs estao nos formatos corretos", "Erro de input", JOptionPane.ERROR_MESSAGE);
-                	} 
+
+                    String titulo = "";
+                    String descricao = "";
+                    Tecnico t = null;
+                    ClienteEmpresa CE = null;
+                    String SO = "";
+                    String verSO = "";
+                    String tipoRede = "";
+                    String endRede = "";
+
+                    int prioridade = 0;
+
+                    if (tfPrioridade.getSelectedItem().equals("Normal")) {
+                        prioridade = 1;
+                    } else if (tfPrioridade.getSelectedItem().equals("Importante")) {
+                        prioridade = 2;
+                    } else if (tfPrioridade.getSelectedItem().equals("Urgente")) {
+                        prioridade = 3;
+                    } else if (tfPrioridade.getSelectedItem().equals("Cr�tica")) {
+                        prioridade = 4;
+                    }
+
+                    try {
+                        titulo = tfTitulo.getText();
+                        descricao = tfDescricao.getText();
+                        t = (Tecnico) cbTecnico.getSelectedItem();
+                        CE = (ClienteEmpresa) cbCliente.getSelectedItem();
+                        SO = (String) cbSO.getSelectedItem();
+                        verSO = tfVersaoSO.getText();
+                        tipoRede = (String) cbRede.getSelectedItem();
+                        endRede = tfEnderecoRede.getText();
+
+                        Chamado c = ctrChamados.InserirChamadoRede(titulo, descricao, prioridade, t, CE, SO, verSO, tipoRede, endRede);
+                        JOptionPane.showMessageDialog(null, "Codigo chamado criado: " + c.getCodigo());
+                        ctrChamados.fecharTela();
+
+                    } catch (NumberFormatException | InputMismatchException ex) {
+                        JOptionPane.showMessageDialog(null, "Erro de input; certifique-se que os inputs estao nos formatos corretos", "Erro de input", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else if (cbProblema.getSelectedItem().equals("Desempenho")) {
+
+                    int prioridade = 0;
+
+                    if (tfPrioridade.getSelectedItem().equals("Normal")) {
+                        prioridade = 1;
+                    } else if (tfPrioridade.getSelectedItem().equals("Importante")) {
+                        prioridade = 2;
+                    } else if (tfPrioridade.getSelectedItem().equals("Urgente")) {
+                        prioridade = 3;
+                    } else if (tfPrioridade.getSelectedItem().equals("Cr�tica")) {
+                        prioridade = 4;
+                    }
+
+                    try {
+                        Chamado c = ctrChamados.InserirChamadoDesempenho(tfTitulo.getText(), tfDescricao.getText(), prioridade,
+                                (Tecnico) cbTecnico.getSelectedItem(), (ClienteEmpresa) cbCliente.getSelectedItem(), (String) cbSO.getSelectedItem(),
+                                tfVersaoSO.getText(), tfProblemaDesempenho.getText(), Integer.parseInt(tfDuracao.getText()));
+                        JOptionPane.showMessageDialog(null, "Codigo chamado criado: " + c.getCodigo());
+                        ctrChamados.fecharTela();
+                    } catch (NumberFormatException | InputMismatchException ex) {
+                        JOptionPane.showMessageDialog(null, "Erro de input; certifique-se que os inputs estao nos formatos corretos", "Erro de input", JOptionPane.ERROR_MESSAGE);
+                    }
                 } else if (cbProblema.getSelectedItem().equals("Banco de dados")) {
-                	
-                	int prioridade = 0; 
-                	
-                	if(tfPrioridade.getSelectedItem().equals("Normal")){
-                		prioridade = 1;
-                	}else if(tfPrioridade.getSelectedItem().equals("Importante")){
-                		prioridade = 2;
-                	}else if(tfPrioridade.getSelectedItem().equals("Urgente")){
-                		prioridade = 3;
-                	}else if(tfPrioridade.getSelectedItem().equals("Cr�tica")){
-                		prioridade = 4;
-                	}
-                	
-                    try{
-                    Chamado c = ctrChamados.InserirChamadoBancoDeDados(tfTitulo.getText(), tfDescricao.getText(), prioridade,
-                            (Tecnico) cbTecnico.getSelectedItem(), (ClienteEmpresa) cbCliente.getSelectedItem(), (String) cbSO.getSelectedItem(),
-                            tfVersaoSO.getText(), (String) cbBancoDados.getSelectedItem());
-                    		ctrChamados.fecharTela();
-                    		JOptionPane.showMessageDialog(null, "Codigo chamado criado: " + c.getCodigo());
-                    		
-                    }catch(NumberFormatException | InputMismatchException ex){
-                		JOptionPane.showMessageDialog(null, "Erro de input; certifique-se que os inputs estao nos formatos corretos", "Erro de input", JOptionPane.ERROR_MESSAGE);
-                	}
+
+                    int prioridade = 0;
+
+                    if (tfPrioridade.getSelectedItem().equals("Normal")) {
+                        prioridade = 1;
+                    } else if (tfPrioridade.getSelectedItem().equals("Importante")) {
+                        prioridade = 2;
+                    } else if (tfPrioridade.getSelectedItem().equals("Urgente")) {
+                        prioridade = 3;
+                    } else if (tfPrioridade.getSelectedItem().equals("Cr�tica")) {
+                        prioridade = 4;
+                    }
+
+                    try {
+                        Chamado c = ctrChamados.InserirChamadoBancoDeDados(tfTitulo.getText(), tfDescricao.getText(), prioridade,
+                                (Tecnico) cbTecnico.getSelectedItem(), (ClienteEmpresa) cbCliente.getSelectedItem(), (String) cbSO.getSelectedItem(),
+                                tfVersaoSO.getText(), (String) cbBancoDados.getSelectedItem());
+                        ctrChamados.fecharTela();
+                        JOptionPane.showMessageDialog(null, "Codigo chamado criado: " + c.getCodigo());
+
+                    } catch (NumberFormatException | InputMismatchException ex) {
+                        JOptionPane.showMessageDialog(null, "Erro de input; certifique-se que os inputs estao nos formatos corretos", "Erro de input", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
 
             } else if (e.getActionCommand().equals(btCancelar.getActionCommand())) {
@@ -447,6 +446,7 @@ public class TelaCadastroChamado extends JFrame {
 
         }
     }
+
     private class TelaCancelar extends JFrame {
 
         /**

@@ -43,7 +43,7 @@ public class ChamadoDAO {
     }
 
     public void putRegistro(RegistroChamado registroChamado) {
-        
+
         cashRegistroChamado.put(registroChamado.getCodigo(), registroChamado);
         persit();
     }
@@ -118,8 +118,8 @@ public class ChamadoDAO {
     public Collection<Chamado> getChamados() {
         return cashChamado.values();
     }
-    
-    public Collection<RegistroChamado> getRegistros(){
-    	return cashRegistroChamado.values();
+
+    public Collection<RegistroChamado> getRegistros() {
+        return cashRegistroChamado.values();
     }
 }

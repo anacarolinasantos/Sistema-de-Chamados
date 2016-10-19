@@ -22,10 +22,10 @@ import javax.swing.JTextField;
 public class TelaCadastroTecnico extends JFrame {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private ControleTecnicos controleTecnicos;
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    private ControleTecnicos controleTecnicos;
     private Container container;
     private GerenciadorEventos gerenciadorEventos;
 
@@ -136,6 +136,7 @@ public class TelaCadastroTecnico extends JFrame {
         }
 
     }
+
     private class TelaCancelar extends JFrame {
 
         /**

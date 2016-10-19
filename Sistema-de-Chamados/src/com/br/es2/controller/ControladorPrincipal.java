@@ -21,8 +21,8 @@ public class ControladorPrincipal {
         this.ctrClientes = new ControleClientes();
         this.ctrEmpresa = new ControleEmpresas();
     }
-    
-    public void start(){
+
+    public void start() {
         this.telaPrincipal.setVisible(true);
     }
 

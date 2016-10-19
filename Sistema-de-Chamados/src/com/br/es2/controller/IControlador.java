@@ -7,6 +7,5 @@ package com.br.es2.controller;
 public interface IControlador {
 
     public Object inserir(long n, String nome);
-    
 
 }

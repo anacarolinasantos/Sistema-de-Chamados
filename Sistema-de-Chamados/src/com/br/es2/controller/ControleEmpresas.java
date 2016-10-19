@@ -32,28 +32,25 @@ public class ControleEmpresas implements IControlador {
         return retorno;
     }
 
-        public int validar(long contrato, String nome) {
-    	
-    	this.empresas = mapeadorEmpresa.getEmpresas();
-    	
+    public int validar(long contrato, String nome) {
+
+        this.empresas = mapeadorEmpresa.getEmpresas();
+
         int retorno = 0;
-        
+
         for (Empresa empresa : empresas) {
-        	//1 o contrato e o nome da empresa ja estao em uso
+            //1 o contrato e o nome da empresa ja estao em uso
             if (empresa.getNumeroContrato() == contrato && empresa.getNomeEmpresa().equals(nome)) {
                 retorno = 1;
-            } 
-            //2 o nome da empresa ja esta em uso
+            } //2 o nome da empresa ja esta em uso
             else if (empresa.getNumeroContrato() != contrato && empresa.getNomeEmpresa().equals(nome)) {
                 retorno = 2;
-            } 
-            //3 o numero de contrato da empresa ja esta em uso
-            else if(empresa.getNumeroContrato() == contrato && !empresa.getNomeEmpresa().equals(nome)){
+            } //3 o numero de contrato da empresa ja esta em uso
+            else if (empresa.getNumeroContrato() == contrato && !empresa.getNomeEmpresa().equals(nome)) {
                 retorno = 3;
-            }
-            //4 nenhum atributo da empresa esta em uso
-            else if(empresa.getNumeroContrato() != contrato && !empresa.getNomeEmpresa().equals(nome)){
-            	retorno = 4;
+            } //4 nenhum atributo da empresa esta em uso
+            else if (empresa.getNumeroContrato() != contrato && !empresa.getNomeEmpresa().equals(nome)) {
+                retorno = 4;
             }
         }
         return retorno;
@@ -61,35 +58,34 @@ public class ControleEmpresas implements IControlador {
 
     @Override
     public Empresa inserir(long n, String nome) {
-    	
-    	Long num = new Long(n);
-    	boolean opcao = checar(num, nome);    	
-    	this.empresas = mapeadorEmpresa.getEmpresas();
-    	
-    	if(!opcao){
-	    	Empresa empresa = new Empresa(n, nome);
-	    	mapeadorEmpresa.put(empresa);
-	    	return empresa;
-    	}
-    	
-    	JOptionPane.showMessageDialog(null, "Empresa ja cadastrada");
-    	return null;
+
+        Long num = new Long(n);
+        boolean opcao = checar(num, nome);
+        this.empresas = mapeadorEmpresa.getEmpresas();
+
+        if (!opcao) {
+            Empresa empresa = new Empresa(n, nome);
+            mapeadorEmpresa.put(empresa);
+            return empresa;
+        }
+
+        JOptionPane.showMessageDialog(null, "Empresa ja cadastrada");
+        return null;
     }
 
 //    public void printar() {
 //        mapeadorEmpresa.printar();
 //   }
-    
-      public boolean checar(Long num, String nome){
-    	empresas = mapeadorEmpresa.getEmpresas();
-    	
-    	for(Empresa e : empresas){
-    		if(e.getNomeEmpresa().equals(nome) || e.getNumeroContrato() == num){
-    			return true;
-    		}    		
-    	}
-    	
-    	return false;
+    public boolean checar(Long num, String nome) {
+        empresas = mapeadorEmpresa.getEmpresas();
+
+        for (Empresa e : empresas) {
+            if (e.getNomeEmpresa().equals(nome) || e.getNumeroContrato() == num) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void cadastrarEmpresa() {

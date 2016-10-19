@@ -76,7 +76,6 @@ public class EmpresaDAO {
     }
 
     //para uso da classe ControleEmpresas
-
     public Collection<Empresa> getEmpresas() {
         return cacheEmpresas.values();
     }
@@ -91,7 +90,7 @@ public class EmpresaDAO {
 //        }
 //    }
     public HashMap<Long, Empresa> voltaEmpresa() {
-        
+
         return this.cacheEmpresas;
 
     }

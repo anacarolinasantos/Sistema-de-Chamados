@@ -251,16 +251,22 @@ public class Chamado implements Serializable {
     public void setDuracaoOperacao(double duracaoOperacao) {
         this.duracaoOperacao = duracaoOperacao;
     }
-    
+
     @Override
-    public boolean equals(final Object c){
-    	Chamado comp = (Chamado) c;   	
-    	
-    	if(this.getCodigo() != comp.getCodigo()) return false;
-    	if(!this.getData().equals(comp.getData())) return false;
-    	if(!this.getTitulo().equals(comp.getTitulo())) return false;
-    	
-    	return true;
+    public boolean equals(final Object c) {
+        Chamado comp = (Chamado) c;
+
+        if (this.getCodigo() != comp.getCodigo()) {
+            return false;
+        }
+        if (!this.getData().equals(comp.getData())) {
+            return false;
+        }
+        if (!this.getTitulo().equals(comp.getTitulo())) {
+            return false;
+        }
+
+        return true;
     }
 
 }

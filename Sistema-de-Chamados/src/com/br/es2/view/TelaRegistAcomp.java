@@ -1,6 +1,5 @@
 package com.br.es2.view;
 
-
 import com.br.es2.controller.ControleChamados;
 import com.br.es2.model.TecnicoDAO;
 import com.br.es2.model.entities.Chamado;
@@ -204,29 +203,29 @@ public class TelaRegistAcomp extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getActionCommand().equals(btSalvar.getActionCommand())) {
-            	try{
-                Chamado c = ctrChamados.voltaChamadoCodigo(Integer.parseInt(tfCodCham.getText()));
-                ctrChamados.alterarChamado(c, (String) cbStatus.getSelectedItem(),
-                        tfCausa.getText(), tfSolucao.getText());
-                RegistroChamado reg = ctrChamados.inserirRegistroChamado(tfAssunto.getText(), c, (Tecnico) cbTecnico.getSelectedItem());
-                ctrChamados.fecharTelaAlteracao();
-                System.err.println("Status: " + c.getStatus() + " Causa: " + c.getCausaProblema()
-                        + "Solucao: " + c.getSolucaoProblema());
-                System.err.println("Assunto: " + reg.getAssunto() + "Tecnico: " + reg.getTecnico().getNome()
-                        + " Chamado codigo: " + reg.getChamado().getCodigo());
-            	}catch (NumberFormatException | InputMismatchException ex) {
+                try {
+                    Chamado c = ctrChamados.voltaChamadoCodigo(Integer.parseInt(tfCodCham.getText()));
+                    ctrChamados.alterarChamado(c, (String) cbStatus.getSelectedItem(),
+                            tfCausa.getText(), tfSolucao.getText());
+                    RegistroChamado reg = ctrChamados.inserirRegistroChamado(tfAssunto.getText(), c, (Tecnico) cbTecnico.getSelectedItem());
+                    ctrChamados.fecharTelaAlteracao();
+                    System.err.println("Status: " + c.getStatus() + " Causa: " + c.getCausaProblema()
+                            + "Solucao: " + c.getSolucaoProblema());
+                    System.err.println("Assunto: " + reg.getAssunto() + "Tecnico: " + reg.getTecnico().getNome()
+                            + " Chamado codigo: " + reg.getChamado().getCodigo());
+                } catch (NumberFormatException | InputMismatchException ex) {
                     JOptionPane.showMessageDialog(null, "Erro de input; certifique-se que os inputs estao nos formatos corretos", "Erro de input", JOptionPane.ERROR_MESSAGE);
-            	}   
+                }
 
             } else if (e.getActionCommand().equals(btCancelar.getActionCommand())) {
                 new TelaCancelar().setVisible(true);
             } else if (e.getActionCommand().equals(btBuscar.getActionCommand())) {
-            	Chamado c = null;
-            	try{
-            		c = ctrChamados.voltaChamadoCodigo(Integer.parseInt(tfCodCham.getText()));
-            	}catch (NumberFormatException | InputMismatchException ex) {
+                Chamado c = null;
+                try {
+                    c = ctrChamados.voltaChamadoCodigo(Integer.parseInt(tfCodCham.getText()));
+                } catch (NumberFormatException | InputMismatchException ex) {
                     JOptionPane.showMessageDialog(null, "Erro de input; certifique-se que os inputs estao nos formatos corretos", "Erro de input", JOptionPane.ERROR_MESSAGE);
-            	}
+                }
                 if (c != null) {
                     btBuscar.setVisible(false);
                     btSalvar.setVisible(true);
@@ -282,6 +281,7 @@ public class TelaRegistAcomp extends JFrame {
 //        }
         }
     }
+
     private class TelaCancelar extends JFrame {
 
         /**
