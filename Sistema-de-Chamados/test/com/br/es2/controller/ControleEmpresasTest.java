@@ -1,129 +1,90 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.br.es2.controller;
 
 import com.br.es2.model.entities.Empresa;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
- * @author 31525962
+ * @author Ana Carolina
  */
 public class ControleEmpresasTest {
+    
+    public ControleEmpresas ce;
     
     public ControleEmpresasTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
     @Before
     public void setUp() {
+        ce = new ControleEmpresas();
     }
     
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of retorna method, of class ControleEmpresas.
-     */
     @Test
-    public void testRetorna() {
-        System.out.println("retorna");
-        long nmr = 0L;
-        String nome = "";
-        ControleEmpresas instance = new ControleEmpresas();
-        Empresa expResult = null;
-        Empresa result = instance.retorna(nmr, nome);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of validar method, of class ControleEmpresas.
-     */
-    @Test
-    public void testValidar() {
-        System.out.println("validar");
-        long contrato = 0L;
-        String nome = "";
-        ControleEmpresas instance = new ControleEmpresas();
-        int expResult = 0;
-        int result = instance.validar(contrato, nome);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of inserir method, of class ControleEmpresas.
-     */
-    @Test
-    public void testInserir() {
-        System.out.println("inserir");
-        long n = 0L;
-        String nome = "";
-        ControleEmpresas instance = new ControleEmpresas();
-        Empresa expResult = null;
-        Empresa result = instance.inserir(n, nome);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of checar method, of class ControleEmpresas.
-     */
-    @Test
-    public void testChecar() {
-        System.out.println("checar");
-        Long num = null;
-        String nome = "";
-        ControleEmpresas instance = new ControleEmpresas();
-        boolean expResult = false;
-        boolean result = instance.checar(num, nome);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of cadastrarEmpresa method, of class ControleEmpresas.
-     */
-    @Test
-    public void testCadastrarEmpresa() {
-        System.out.println("cadastrarEmpresa");
-        ControleEmpresas instance = new ControleEmpresas();
-        instance.cadastrarEmpresa();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of fecharTela method, of class ControleEmpresas.
-     */
-    @Test
-    public void testFecharTela() {
-        System.out.println("fecharTela");
-        ControleEmpresas instance = new ControleEmpresas();
-        instance.fecharTela();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testRetornaEmpresaExistente() {
+        //cenário onde a Empresa buscada existe na base de dados (no arquivo empresas.dat)
+        Empresa esperado = ce.retorna(1, "Mackenzie");
+        
+        assertEquals("Mackenzie", esperado.getNomeEmpresa());
+        assertEquals(1, esperado.getNumeroContrato());
     }
     
+    @Test
+    public void testRetornaEmpresaInexistente() {
+        //cenário onde a Empresa não existe na base de dados
+        Empresa esperado = ce.retorna(2, "Universidade");
+        
+        assertEquals(null, esperado);
+    }
+    
+    @Test
+    public void testValidarRetorno1() {
+        //cenário onde não é possivel cadastrar a Empresa, pois número do contrato e o nome da empresa ja estao em uso
+        //método retorna 1
+    }
+    
+    @Test
+    public void testValidarRetorno2() {
+        //cenário onde não é possivel cadastrar a Empresa, pois nome da empresa ja esta em uso
+        //método retorna 2
+    }
+    
+    @Test
+    public void testValidarRetorno3() {
+        //cenário onde não é possivel cadastrar a Empresa, pois numero de contrato ja esta em uso
+        //método retorna 3
+    }
+    
+    @Test
+    public void testValidarRetorno4() {
+        //cenário onde é possível cadastrar a Empresa e metódo retorna 4
+    }
+    
+    //método checar faz a mesma coisa que método validar
+    //método validar não é utilizado 
+
+    @Test
+    public void testInserirCadastrada() {
+        //cenário que a Empresa já foi cadastrada na base de dados 
+        //método deve retornar null
+    }
+    
+    @Test
+    public void testInserirCorretamente() {
+        //cenário onde a Empresa ainda não foi cadastrada na base de dados 
+        //método deve retornar uma empresa que acabou de ser cadastrada
+    }
+
+    @Test
+    public void testChecarTrue() {
+        //cenário onde a Empresa existe na base de dados
+        //método deve retornar true
+    }
+    
+    @Test
+    public void testChecarFalse() {
+        //cenário onde a Empresa não existe na base de dados
+        //método deve retornar false
+    }
 }
