@@ -60,30 +60,28 @@ public class ControleEmpresasTest {
     public void testValidarRetorno4() {
         //cenário onde é possível cadastrar a Empresa e metódo retorna 4
     }
-    
-    //método checar faz a mesma coisa que método validar
-    //método validar não é utilizado 
 
     @Test
-    public void testInserirCadastrada() {
+    public void testInserirEmpresaCadastrada() {
         //cenário que a Empresa já foi cadastrada na base de dados 
         //método deve retornar null
     }
     
     @Test
-    public void testInserirCorretamente() {
+    public void testInserirEmpresaCorretamente() {
         //cenário onde a Empresa ainda não foi cadastrada na base de dados 
         //método deve retornar uma empresa que acabou de ser cadastrada
     }
 
+    //método checar faz a mesma coisa que método validar
     @Test
-    public void testChecarTrue() {
+    public void testChecarEmpresaExistente() {
         //cenário onde a Empresa existe na base de dados
         //método deve retornar true
     }
     
     @Test
-    public void testChecarFalse() {
+    public void testChecarEmpresaInexistente() {
         //cenário onde a Empresa não existe na base de dados
         //método deve retornar false
     }
