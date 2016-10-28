@@ -53,16 +53,7 @@ public class ControleChamadosTest {
     
     @Test
     public void testInserirRegistroChamado() {
-        System.out.println("inserirRegistroChamado");
-        String assunto = "";
-        Chamado chamado = null;
-        Tecnico tec = null;
-        ControleChamados instance = new ControleChamados();
-        RegistroChamado expResult = null;
-        RegistroChamado result = instance.inserirRegistroChamado(assunto, chamado, tec);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
     
     @Test
