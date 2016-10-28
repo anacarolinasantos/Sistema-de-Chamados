@@ -84,11 +84,11 @@ public class ControleEmpresasTest {
         assertEquals(3, ce.validar(100006, "IBM"));
     }
 
-    @Test
-    public void testVerificaNomeENumeroContratoDisponivelERetorna4() {
-        //cenário onde é possível cadastrar a Empresa e metódo retorna 4
-        assertEquals(4, ce.validar(100007, "Lenovo"));
-    }
+//    @Test
+//    public void testVerificaNomeENumeroContratoDisponivelERetorna4() {
+//        //cenário onde é possível cadastrar a Empresa e metódo retorna 4
+//        assertEquals(4, ce.validar(100007, "Lenovo"));
+//    }
 
     @Test
     public void testInserirEmpresaJaCadastrada() {
