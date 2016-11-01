@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.br.es2.controller;
+package com.br.es2.model;
 
+import com.br.es2.model.entities.Chamado;
+import com.br.es2.model.entities.RegistroChamado;
+import java.util.Collection;
+import java.util.HashMap;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,9 +18,11 @@ import static org.junit.Assert.*;
  *
  * @author 31525962
  */
-public class ControleChamadosTest {
+public class ChamadoDAOTest {
     
-    public ControleChamadosTest() {
+    private ChamadoDAO cdao;
+    
+    public ChamadoDAOTest() {
     }
     
     @Before

@@ -6,7 +6,9 @@
 package com.br.es2.controller;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author 31525962
  */
-public class ControleChamadosTest {
+public class ControladorPrincipalTest {
     
-    public ControleChamadosTest() {
+    public ControladorPrincipalTest() {
     }
     
     @Before

@@ -18,8 +18,9 @@ import static org.junit.Assert.*;
  */
 public class ControleEmpresasTest {
 
-    public ControleEmpresas ce;
-
+    private ControleEmpresas ce;
+    private final long time_max = 100;
+    
     public ControleEmpresasTest() {
     }
 
@@ -39,8 +40,6 @@ public class ControleEmpresasTest {
 
             oos.close();
         }
-
-        ce = new ControleEmpresas();
     }
 
     @After
@@ -49,8 +48,10 @@ public class ControleEmpresasTest {
         file.delete();
     }
 
-    @Test
+    @Test(timeout = time_max)
     public void testBuscaEmpresaExistente() {
+        ce = new ControleEmpresas();
+        
         //cenário onde a Empresa buscada existe na base de dados (no arquivo empresas.dat)
         Empresa empresaRetornada = ce.retorna(100001, "Mackenzie");
 
@@ -58,14 +59,18 @@ public class ControleEmpresasTest {
         assertEquals(100001, empresaRetornada.getNumeroContrato());
     }
 
-    @Test
+    @Test(timeout = time_max)
     public void testBuscaEmpresaQueNaoExiste() {
+        ce = new ControleEmpresas();
+        
         //cenário onde a Empresa não existe na base de dados
         assertNull(ce.retorna(200000, "Mack"));
     }
 
-    @Test
+    @Test(timeout = time_max)
     public void testVerificaNomeENumeroContratoEmUsoNaMesmaEmpresaERetorna1() {
+        ce = new ControleEmpresas();
+        
         //cenário onde não é possivel cadastrar a Empresa, pois número do contrato e o nome da empresa ja estao em uso
         //método deve retorna 1
         Empresa emp = ce.inserir(100002, "Citrosuco");
@@ -73,8 +78,10 @@ public class ControleEmpresasTest {
         assertEquals(1, ce.validar(emp.getNumeroContrato(), emp.getNomeEmpresa()));
     }
 
-    @Test
+    @Test(timeout = time_max)
     public void testVerificaNomeENumeroContratoEmUsoEmEmpresasDiferentesERetorna1() {
+        ce = new ControleEmpresas();
+        
         //cenário onde não é possivel cadastrar a Empresa, pois número do contrato e o nome da empresa ja estao em uso
         //método deve retorna 1
         Empresa emp1 = ce.inserir(100003, "Del Valle");
@@ -83,8 +90,10 @@ public class ControleEmpresasTest {
         assertEquals(1, ce.validar(emp1.getNumeroContrato(), emp2.getNomeEmpresa()));
     }
 
-    @Test
+    @Test(timeout = time_max)
     public void testVerificaNomeEmUsoERetorna2() {
+        ce = new ControleEmpresas();
+        
         //cenário onde não é possivel cadastrar a Empresa, pois nome da empresa ja esta em uso
         //método retorna 2
         Empresa emp = ce.inserir(100005, "Forever 21");
@@ -93,8 +102,10 @@ public class ControleEmpresasTest {
 
     }
 
-    @Test
+    @Test(timeout = time_max)
     public void testVerificaNumeroContratoEmUsoERetorna3() {
+        ce = new ControleEmpresas();
+        
         //cenário onde não é possivel cadastrar a Empresa, pois numero de contrato ja esta em uso
         //método retorna 3
         Empresa emp = ce.inserir(100006, "Cerrefour");
@@ -102,14 +113,18 @@ public class ControleEmpresasTest {
         assertEquals(3, ce.validar(emp.getNumeroContrato(), "IBM"));
     }
 
-    @Test
+    @Test(timeout = time_max)
     public void testVerificaNomeENumeroContratoDisponivelERetorna4() {
+        ce = new ControleEmpresas();
+        
         //cenário onde é possível cadastrar a Empresa e metódo retorna 4
         assertEquals(4, ce.validar(100007, "Lenovo"));
     }
 
-    @Test
+    @Test(timeout = time_max)
     public void testInserirEmpresaJaCadastrada() {
+        ce = new ControleEmpresas();
+        
         //cenário que a Empresa já foi cadastrada na base de dados 
         //método deve retornar null
         Empresa empCadastrada = ce.inserir(100008, "Skype");
@@ -117,8 +132,10 @@ public class ControleEmpresasTest {
         assertNull(ce.inserir(empCadastrada.getNumeroContrato(), empCadastrada.getNomeEmpresa()));
     }
 
-    @Test
+    @Test(timeout = time_max)
     public void testInserirEmpresaCorretamente() {
+        ce = new ControleEmpresas();
+        
         //cenário onde a Empresa ainda não foi cadastrada na base de dados 
         //método deve retornar uma empresa que acabou de ser cadastrada
         Empresa empCadastrada = ce.inserir(100009, "WhatsApp");
@@ -127,23 +144,29 @@ public class ControleEmpresasTest {
         assertEquals("WhatsApp", empCadastrada.getNomeEmpresa());
     }
     
-    @Test(expected = Exception.class)
+    @Test(expected = Exception.class, timeout = time_max)
     public void testInserirEmpresaComNomeNulo() {
+        ce = new ControleEmpresas();
+        
         //cenário onde a Empresa está sendo cadastrada com nome com valor nulo 
         //método deve retornar uma exceção
         ce.inserir(100010, null);
     }
     
-    @Test(expected = Exception.class)
+    @Test(expected = Exception.class, timeout = time_max)
     public void testInserirEmpresaComNumeroContratoNegativo() {
+        ce = new ControleEmpresas();
+        
         //cenário onde a Empresa está sendo cadastrada com número do contrato com valor negativo 
         //método deve retornar uma exceção
         ce.inserir(-1, "Burger King");
     }
 
     //método checar faz a mesma coisa que método validar
-    @Test
+    @Test(timeout = time_max)
     public void testChecarEmpresaExistente() {
+        ce = new ControleEmpresas();
+        
         //cenário onde a Empresa existe na base de dados
         //método deve retornar true
         Empresa empCadastrada = ce.inserir(100012, "Apple");
@@ -151,8 +174,10 @@ public class ControleEmpresasTest {
         assertTrue(ce.checar(empCadastrada.getNumeroContrato(), empCadastrada.getNomeEmpresa()));
     }
 
-    @Test
+    @Test(timeout = time_max)
     public void testChecarEmpresaInexistente() {
+        ce = new ControleEmpresas();
+        
         //cenário onde a Empresa não existe na base de dados
         //método deve retornar false
         Empresa empNova = new Empresa(100013, "LG");
