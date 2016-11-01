@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controleTest;
+package com.br.es2.controller;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,9 +14,9 @@ import static org.junit.Assert.*;
  *
  * @author 31525962
  */
-public class ControladorPrincipalTest {
+public class ControleChamadosTest {
     
-    public ControladorPrincipalTest() {
+    public ControleChamadosTest() {
     }
     
     @Before

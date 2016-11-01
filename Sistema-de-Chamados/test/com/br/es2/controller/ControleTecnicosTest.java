@@ -1,6 +1,5 @@
-package controleTest;
+package com.br.es2.controller;
 
-import controle.ControleTecnicos;
 import controle.ControleTecnicos;
 import entidade.Tecnico;
 import java.io.File;

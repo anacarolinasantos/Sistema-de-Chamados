@@ -1,4 +1,4 @@
-package entidadeTest;
+package com.br.es2.model.entities;
 
 import org.junit.Test;
 
