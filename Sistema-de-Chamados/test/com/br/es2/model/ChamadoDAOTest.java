@@ -5,8 +5,9 @@
  */
 package com.br.es2.model;
 
-import com.br.es2.model.entities.Chamado;
-import com.br.es2.model.entities.RegistroChamado;
+import Persistencia.ChamadoDAO;
+import entidade.Chamado;
+import entidade.RegistroChamado;
 import java.util.Collection;
 import java.util.HashMap;
 import org.junit.After;

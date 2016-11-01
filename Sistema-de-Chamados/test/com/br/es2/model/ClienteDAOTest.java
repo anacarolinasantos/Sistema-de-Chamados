@@ -5,7 +5,7 @@
  */
 package com.br.es2.model;
 
-import com.br.es2.model.entities.ClienteEmpresa;
+import entidade.ClienteEmpresa;
 import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;

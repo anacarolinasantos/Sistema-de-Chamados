@@ -1,6 +1,7 @@
 package com.br.es2.controller;
 
-import com.br.es2.model.entities.Tecnico;
+import controle.ControleTecnicos;
+import entidade.Tecnico;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
