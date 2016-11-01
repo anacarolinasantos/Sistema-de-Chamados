@@ -3,14 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.br.es2.model;
+package controleTest;
 
-import entidade.ClienteEmpresa;
-import java.util.HashMap;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,9 +14,9 @@ import static org.junit.Assert.*;
  *
  * @author 31525962
  */
-public class ClienteDAOTest {
+public class ControleChamadosTest {
     
-    public ClienteDAOTest() {
+    public ControleChamadosTest() {
     }
     
     @Before

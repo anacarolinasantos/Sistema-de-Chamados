@@ -1,10 +1,15 @@
-package com.br.es2.model.entities;
+package entidadeTest;
 
 import entidade.Pessoa;
 import entidade.Tecnico;
 import entidade.Empresa;
 import entidade.Chamado;
+import entidade.Chamado;
 import entidade.ClienteEmpresa;
+import entidade.ClienteEmpresa;
+import entidade.Empresa;
+import entidade.Pessoa;
+import entidade.Tecnico;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
