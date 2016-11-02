@@ -2,6 +2,7 @@ package entidade;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 /**
  *
  * @author Bárbara
@@ -9,7 +10,6 @@ import static org.junit.Assert.*;
 public class PessoaTest {
 
     private Pessoa p;
-
 
     @Test
     public void testCriarPessoaComDadosValidos(){

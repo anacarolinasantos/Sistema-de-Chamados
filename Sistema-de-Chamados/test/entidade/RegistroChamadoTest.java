@@ -1,5 +1,6 @@
 package entidade;
 
+import static junit.framework.Assert.assertEquals;
 import org.junit.Test;
 
 /**
@@ -8,18 +9,20 @@ import org.junit.Test;
  */
 public class RegistroChamadoTest {
 
+    private RegistroChamado rc;
+
     @Test
-    public void testCadastrarRegistroChamado() {
+    public void testCadastrarRegistroChamadoComDadosValidos() {
         //cenário onde se cadastra um novo registro de chamado
     }
 
     @Test
-    public void testEditarRegistroChamado() {
+    public void testEditarRegistroChamadoComDadosValidos() {
         //cenário onde se edita os dados do registro de chamado
     }
 
     @Test(expected = Exception.class)
-    public void testVerificarAssuntoDoRegistroChamadoENulo() throws Exception {
+    public void testCriarAssuntoDoRegistroChamadoNulo() throws Exception {
         //cenário onde se verifica se o assunto do registro de chamado é nulo
     }
 }
