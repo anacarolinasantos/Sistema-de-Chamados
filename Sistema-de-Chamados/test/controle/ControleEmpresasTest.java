@@ -135,7 +135,7 @@ public class ControleEmpresasTest {
     }
 
     @Test(timeout = time_max)
-    public void testInserirEmpresaCorretamente() {
+    public void testInserirNovaEmpresa() {
         ce = new ControleEmpresas();
         
         //cenário onde a Empresa ainda não foi cadastrada na base de dados 
@@ -152,7 +152,7 @@ public class ControleEmpresasTest {
         
         //cenário onde a Empresa está sendo cadastrada com nome com valor nulo 
         //método deve retornar uma exceção
-        ce.inserir(100010, null);
+        ce.inserir(100010, "");
     }
     
     @Test(expected = Exception.class, timeout = time_max)

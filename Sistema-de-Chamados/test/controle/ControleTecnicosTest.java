@@ -1,7 +1,5 @@
 package controle;
 
-import controle.ControleTecnicos;
-import controle.ControleTecnicos;
 import entidade.Tecnico;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -77,6 +75,6 @@ public class ControleTecnicosTest {
         
         //cenário onde o Técnico está sendo cadastrado com nome com valor nulo 
         //método deve retornar uma exceção
-        ct.inserir(37611954, null);
+        ct.inserir(37611954, "");
     }
 }
