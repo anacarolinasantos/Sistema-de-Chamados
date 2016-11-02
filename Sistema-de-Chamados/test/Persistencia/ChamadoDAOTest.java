@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author 31525962
+ * @author Ana Carolina
  */
 public class ChamadoDAOTest {
     

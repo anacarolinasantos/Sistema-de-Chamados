@@ -16,12 +16,12 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author 31525962
+ * @author Ana Carolina
  */
 public class ControleTecnicosTest {
     
     public ControleTecnicos ct;
-    private final long time_max = 100;
+    private final long time_max = 1000;
     
     public ControleTecnicosTest() {
     }
@@ -46,7 +46,7 @@ public class ControleTecnicosTest {
     
     @After
     public void tearDown() {
-        File file = new File("empresas.dat");
+        File file = new File("tecnicos.dat");
         file.delete();
     }
     

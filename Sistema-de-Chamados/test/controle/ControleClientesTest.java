@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author 31525962
+ * @author Ana Carolina
  */
 public class ControleClientesTest {
     
@@ -50,11 +50,6 @@ public class ControleClientesTest {
     public void tearDown() {
         File file = new File("clientes.dat");
         file.delete();
-    }
-    
-    @Test
-    public void testGetClienteDAO() {
-        
     }
     
     @Test

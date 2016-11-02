@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 public class ControleEmpresasTest {
 
     private ControleEmpresas ce;
-    private final long time_max = 100;
+    private final long time_max = 1000;
     
     public ControleEmpresasTest() {
     }
