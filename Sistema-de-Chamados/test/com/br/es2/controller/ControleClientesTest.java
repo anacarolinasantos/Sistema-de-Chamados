@@ -1,8 +1,7 @@
 package com.br.es2.controller;
 
-import controle.ControleClientes;
-import entidade.ClienteEmpresa;
-import entidade.Empresa;
+import com.br.es2.model.entities.ClienteEmpresa;
+import com.br.es2.model.entities.Empresa;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

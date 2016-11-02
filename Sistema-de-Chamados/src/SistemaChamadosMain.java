@@ -1,4 +1,4 @@
-import controle.ControladorPrincipal;
+import com.br.es2.controller.ControladorPrincipal;
 
 public class SistemaChamadosMain {
 
