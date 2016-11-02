@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package persistencia;
+package persistenciaTest;
 
 import entidade.ClienteEmpresa;
 import java.util.HashMap;

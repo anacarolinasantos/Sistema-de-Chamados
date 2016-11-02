@@ -1,4 +1,4 @@
-package entidade;
+package entidadeTest;
 
 import org.junit.Test;
 

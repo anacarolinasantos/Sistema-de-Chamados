@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package persistencia;
+package persistenciaTest;
 
-import Persistencia.ChamadoDAO;
-import entidade.Chamado;
-import entidade.RegistroChamado;
+import entidade.Empresa;
 import java.util.Collection;
 import java.util.HashMap;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,11 +19,9 @@ import static org.junit.Assert.*;
  *
  * @author 31525962
  */
-public class ChamadoDAOTest {
+public class EmpresaDAOTest {
     
-    private ChamadoDAO cdao;
-    
-    public ChamadoDAOTest() {
+    public EmpresaDAOTest() {
     }
     
     @Before
