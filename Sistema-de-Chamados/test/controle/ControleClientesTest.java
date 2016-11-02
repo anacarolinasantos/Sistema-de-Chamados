@@ -1,4 +1,4 @@
-package controleTest;
+package controle;
 
 import controle.ControleClientes;
 import controle.ControleClientes;

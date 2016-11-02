@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package persistenciaTest;
+package controle;
 
-import entidade.Tecnico;
-import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,15 +16,15 @@ import static org.junit.Assert.*;
  *
  * @author 31525962
  */
-public class TecnicoDAOTest {
-
-    public TecnicoDAOTest() {
+public class ControladorPrincipalTest {
+    
+    public ControladorPrincipalTest() {
     }
-
+    
     @Before
     public void setUp() {
     }
-
+    
     @After
     public void tearDown() {
     }

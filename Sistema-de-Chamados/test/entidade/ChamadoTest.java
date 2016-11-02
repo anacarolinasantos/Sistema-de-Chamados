@@ -1,4 +1,4 @@
-package entidadeTest;
+package entidade;
 
 import entidade.Tecnico;
 import entidade.Pessoa;
