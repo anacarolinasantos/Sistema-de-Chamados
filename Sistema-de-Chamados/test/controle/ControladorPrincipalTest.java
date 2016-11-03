@@ -128,4 +128,9 @@ public class ControladorPrincipalTest {
         assertNotNull(cp.getCtrEmpresa());
         assertNotNull(cp.getCtrTecnicos());
     }
+
+    @Test
+    public void TestIniciarControladorPrincipal() {
+        //cenário onde se inicializa o controlador principal
+    }
 }
