@@ -15,15 +15,20 @@ import static org.junit.Assert.*;
  * @author Ana Carolina
  */
 public class ControladorPrincipalTest {
-    
+
     public ControladorPrincipalTest() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
+    }
+
+    @Test
+    public void TestIniciarControladorPrincipal() {
+        //cenário onde se inicializa o controlador principal
     }
 }
