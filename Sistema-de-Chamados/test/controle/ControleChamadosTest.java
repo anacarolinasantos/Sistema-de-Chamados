@@ -9,6 +9,7 @@ import entidade.Chamado;
 import entidade.ClienteEmpresa;
 import entidade.Empresa;
 import entidade.Pessoa;
+import entidade.RegistroChamado;
 import entidade.Tecnico;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -31,40 +32,58 @@ public class ControleChamadosTest {
     private ControleChamados controleChamados;
     private final long time_max = 1000;
 
-    private Empresa e;
-    private Pessoa p;
-    private Tecnico t;
     private ClienteEmpresa ce;
+    private Tecnico t;
     private Chamado c;
 
     public ControleChamadosTest() {
-        e = new Empresa(1010, "Dell");
-        p = new Pessoa("Bárbara", 12341234);
-        t = new Tecnico("João", 43214321);
-        ce = new ClienteEmpresa(001, e, 00000000000, p.getNome(), p.getTelefone());
     }
 
     @Before
     public void setUp() throws FileNotFoundException, IOException {
+        ce = new ClienteEmpresa(001, new Empresa(1010, "Dell"), 00000000000, "Bárbara", 12341234);
+        t = new Tecnico("João", 43214321);
+        c = new Chamado(ce.getCodigo(), "Problema de Rede", "Sem serviço de conexão wi-fi", 1, t, ce, "Windows", "10", "wireless", "192.168.1.1");
+        
         try (FileOutputStream fos = new FileOutputStream("chamados.dat")) {
             ObjectOutputStream oos = new ObjectOutputStream(fos);
 
-            HashMap<Integer, Chamado> cache = new HashMap<>();
+            HashMap<Integer, Chamado> cacheChamados = new HashMap<>();
 
-            cache.put(1, new Chamado("Problema de Banco de Dados", "Dados de clientes duplicados", 4, t, ce, "Linux", "15.9", "SQL"));
-            oos.writeObject(cache);
+            cacheChamados.put(1, new Chamado("Problema de Banco de Dados", "Dados de clientes duplicados", 4, t, ce, "Linux", "15.9", "SQL"));
+
+            oos.writeObject(cacheChamados);
 
             oos.flush();
             fos.flush();
 
             oos.close();
         }
+
+        try (FileOutputStream fosR = new FileOutputStream("registroChamados.dat")) {
+            ObjectOutputStream oosR = new ObjectOutputStream(fosR);
+
+            HashMap<Integer, RegistroChamado> cacheRegistros = new HashMap<>();
+
+            cacheRegistros.put(1, new RegistroChamado("Sem serviço de rede", c, t));
+
+            oosR.writeObject(cacheRegistros);
+
+            oosR.flush();
+            fosR.flush();
+
+            oosR.close();
+        }
+        
     }
 
     @After
     public void tearDown() {
-        File file = new File("chamados.dat");
-        file.delete();
+        File fileChamado = new File("chamados.dat");
+        fileChamado.delete();
+
+        File fileRegistro = new File("registroChamados.dat");
+        fileRegistro.delete();
 
     }
 
@@ -154,22 +173,10 @@ public class ControleChamadosTest {
     }
 
     @Test(timeout = time_max)
-    public void testEmitirChamado() {
-        //cenário onde mostra para o usuário o chamado que está na base de dados
-
-    }
-
-    @Test(timeout = time_max)
-    public void testEmitirRelatorioDoConteudoDoBancoDeDados() {
-        //cenário onde mostra para o usuário o chamado que está na base de dados
-
-    }
-
-    @Test(timeout = time_max)
     public void testValidarQuantidadeDeChamadosExistentes() {
         //cenário onde valida as empresas existentes na base de dados
-        
-        e = new Empresa(123456789, "Facebook");
+
+        Empresa e = new Empresa(123456789, "Facebook");
         ce = new ClienteEmpresa(2, e, 1234567, "Bárbara", 123456789);
         c = new Chamado("Problema de Banco de Dados", "Dados de clientes duplicados",
                 4, t, ce, "Linux", "15.9", "SQL");
