@@ -5,8 +5,10 @@
  */
 package controle;
 
+import entidade.Chamado;
 import entidade.ClienteEmpresa;
 import entidade.Empresa;
+import entidade.RegistroChamado;
 import entidade.Tecnico;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -85,21 +87,34 @@ public class ControladorPrincipalTest {
         //criação do arquivo de chamados
         fos = new FileOutputStream("chamados.dat");
         oos = new ObjectOutputStream(fos);
-        
-        oos.writeObject(cashChamado);
-        
+
+        HashMap<Integer, Chamado> cacheChamados = new HashMap<>();
+
+        ClienteEmpresa ce = new ClienteEmpresa(001, new Empresa(1010, "Dell"), 00000000000, "Bárbara", 12341234);
+        cacheChamados.put(1, new Chamado("Problema de Banco de Dados", "Dados de clientes duplicados", 4, 
+                new Tecnico("João", 43214321), ce, "Linux", "15.9", "SQL"));
+
+        oos.writeObject(cacheChamados);
+
         oos.flush();
         fos.flush();
-        
+
         oos.close();
         fos.close();
 
         //criação do arquivo de registro de chamados
         fos = new FileOutputStream("registroChamados.dat");
         oos = new ObjectOutputStream(fos);
-        
-        oos.writeObject(cashRegistroChamado);
-        
+
+        HashMap<Integer, RegistroChamado> cacheRegistros = new HashMap<>();
+
+        cacheRegistros.put(1, new RegistroChamado("Sem serviço de rede",
+                new Chamado(ce.getCodigo(), "Problema de Rede", "Sem serviço de conexão wi-fi", 1,
+                        new Tecnico("João", 43214321), ce, "Windows", "10", "wireless", "192.168.1.1"),
+                new Tecnico("João", 43214321)));
+
+        oos.writeObject(cacheRegistros);
+
         oos.flush();
         fos.flush();
 
@@ -117,6 +132,12 @@ public class ControladorPrincipalTest {
 
         File fileCli = new File("clientes.dat");
         fileCli.delete();
+        
+        File fileCha = new File("chamados.dat");
+        fileCha.delete();
+        
+        File fileReg = new File("registroChamados.dat");
+        fileReg.delete();
     }
 
     @Test
@@ -127,10 +148,5 @@ public class ControladorPrincipalTest {
         assertNotNull(cp.getCtrClientes());
         assertNotNull(cp.getCtrEmpresa());
         assertNotNull(cp.getCtrTecnicos());
-    }
-
-    @Test
-    public void TestIniciarControladorPrincipal() {
-        //cenário onde se inicializa o controlador principal
     }
 }
