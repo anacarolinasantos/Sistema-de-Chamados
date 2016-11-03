@@ -1,7 +1,5 @@
 package controle;
 
-import controle.ControleEmpresas;
-import controle.ControleEmpresas;
 import entidade.Empresa;
 import java.io.File;
 import java.io.FileNotFoundException;
